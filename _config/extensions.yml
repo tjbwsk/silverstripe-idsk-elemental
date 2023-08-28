@@ -1,0 +1,11 @@
+---
+Name: idsk-elemental-extensions
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - DNADesign\Elemental\Extensions\ElementalPageExtension
+    - TJBW\IdSkElemental\Extensions\SiteTreeExtension
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\BaseElementExtension
+    - TJBW\IdSkElemental\Extensions\TitleCaptionExtension

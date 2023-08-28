@@ -16,7 +16,8 @@
     ],
     "require": {
         "rasstislav/silverstripe-idsk": "*",
-        "rasstislav/silverstripe-idsk-theme": "*"
+        "rasstislav/silverstripe-idsk-theme": "*",
+        "dnadesign/silverstripe-elemental": "*"
     },
     "autoload": {
         "psr-4": {

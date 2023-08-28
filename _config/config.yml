@@ -1,0 +1,7 @@
+---
+Name: modules-idsk-elemental-config
+Before: modules-other
+---
+SilverStripe\Core\Manifest\ModuleManifest:
+  module_priority:
+    - tjbw/silverstripe-idsk-elemental
