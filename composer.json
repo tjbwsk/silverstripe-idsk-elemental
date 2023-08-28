@@ -1,0 +1,28 @@
+{
+    "name": "tjbw/silverstripe-idsk-elemental",
+    "description": "ID-SK Frontend Elemental – Jednotný dizajn manuál elektronických služieb a webových sídiel.",
+    "type": "silverstripe-vendormodule",
+    "keywords": [
+        "silverstripe",
+        "idsk",
+        "frontend",
+        "elemental"
+    ],
+    "authors": [
+        {
+            "name": "Rastislav Brandobur",
+            "email": "brandobur@tjbw.sk"
+        }
+    ],
+    "require": {
+        "rasstislav/silverstripe-idsk": "*",
+        "rasstislav/silverstripe-idsk-theme": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TJBW\\IdSkElemental\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
