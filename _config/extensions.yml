@@ -20,3 +20,11 @@ Dynamic\Elements\Accordion\Elements\ElementAccordion:
 Dynamic\Elements\Accordion\Model\AccordionPanel:
   extensions:
     - TJBW\IdSkElemental\Extensions\AccordionPanelExtension
+---
+Name: idsk-elemental-userforms-extensions
+Only:
+  moduleexists: dnadesign/silverstripe-elemental-userforms
+---
+DNADesign\ElementalUserForms\Model\ElementForm:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\ElementFormExtension

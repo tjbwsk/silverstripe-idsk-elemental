@@ -20,7 +20,8 @@
         "dnadesign/silverstripe-elemental": "*"
     },
     "suggest": {
-        "dynamic/silverstripe-elemental-accordion": "Display content in collapsable panels."
+        "dynamic/silverstripe-elemental-accordion": "Display content in collapsable panels.",
+        "dnadesign/silverstripe-elemental-userforms": "Adds a new element for usersforms."
     },
     "autoload": {
         "psr-4": {

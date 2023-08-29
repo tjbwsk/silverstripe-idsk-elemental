@@ -1,0 +1,9 @@
+---
+Name: idsk-elemental-userforms-config
+Only:
+  moduleexists: dnadesign/silverstripe-elemental-userforms
+---
+DNADesign\ElementalUserForms\Model\ElementForm:
+  block_default_userforms_js: true
+  block_default_userforms_css: true
+  enable_are_you_sure: false
