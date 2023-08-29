@@ -3,6 +3,7 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use DNADesign\ElementalVirtual\Model\ElementVirtual;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
@@ -54,7 +55,14 @@ class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
                 || ($currRecord = $currRecord instanceof BaseElement ? $currRecord->Parent()->getOwnerPage() : null)
             )
             && ($firstElement = $currRecord->ElementalArea()->Elements()->first())
-            && $firstElement instanceof static
+            && (
+                $firstElement instanceof static
+                || (
+                    class_exists(ElementVirtual::class)
+                    && $firstElement instanceof ElementVirtual
+                    && $firstElement->LinkedElement() instanceof static
+                )
+            )
         ) {
             return $firstElement;
         }

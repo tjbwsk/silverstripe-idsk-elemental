@@ -3,6 +3,7 @@
 namespace TJBW\IdSkElemental\Models;
 
 use DNADesign\Elemental\Models\ElementalArea as VendorElementalArea;
+use DNADesign\ElementalVirtual\Model\ElementVirtual;
 use TJBW\IdSkElemental\Elements\ElementPhaseBanner;
 
 class ElementalArea extends VendorElementalArea
@@ -13,7 +14,14 @@ class ElementalArea extends VendorElementalArea
 
         if (
             ($firstElement = ($firstController = $controllers[0] ?? null) ? $firstController->getElement() : null)
-            && $firstElement instanceof ElementPhaseBanner
+            && (
+                $firstElement instanceof ElementPhaseBanner
+                || (
+                    class_exists(ElementVirtual::class)
+                    && $firstElement instanceof ElementVirtual
+                    && $firstElement->LinkedElement() instanceof ElementPhaseBanner
+                )
+            )
         ) {
             $controllers->offsetUnset(0);
         }

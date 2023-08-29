@@ -1,4 +1,13 @@
 ---
+Name: idsk-elemental-virtual-config
+Only:
+  moduleexists: dnadesign/silverstripe-elemental-virtual
+---
+DNADesign\Elemental\Models\BaseElement:
+  default_global_elements: false
+DNADesign\ElementalVirtual\Model\ElementVirtual:
+  displays_title_caption_field: false
+---
 Name: idsk-elemental-userforms-config
 Only:
   moduleexists: dnadesign/silverstripe-elemental-userforms
