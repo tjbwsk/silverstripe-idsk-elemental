@@ -26,7 +26,8 @@
         "dynamic/silverstripe-elemental-accordion": "Display content in collapsable panels.",
         "dnadesign/silverstripe-elemental-userforms": "Adds a new element for usersforms.",
         "dynamic/silverstripe-elemental-blog": "Show recent posts from a featured blog.",
-        "silverstripe/elemental-fileblock": "A file block for the silverstripe-elemental module."
+        "silverstripe/elemental-fileblock": "A file block for the silverstripe-elemental module.",
+        "dynamic/silverstripe-elemental-embedded-code": "Embed code like iFrames or Javascript on a page."
     },
     "autoload": {
         "psr-4": {
