@@ -26,3 +26,10 @@ SilverStripe\CMS\Model\SiteTree:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
     - Dynamic\Elements\Blog\Elements\ElementBlogPagination
     - Dynamic\Elements\Blog\Elements\ElementBlogWidgets
+---
+Name: idsk-elemental-file-config
+Only:
+  moduleexists: silverstripe/elemental-fileblock
+---
+SilverStripe\ElementalFileBlock\Block\FileBlock:
+  displays_title_caption_field: false
