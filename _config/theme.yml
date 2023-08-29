@@ -1,0 +1,8 @@
+---
+Name: idsk-elemental-adminthemes
+---
+SilverStripe\Admin\LeftAndMain:
+  admin_themes:
+    - 'tjbw/silverstripe-idsk-elemental:cms-forms'
+    - 'silverstripe/admin:cms-forms'
+    - '$default'
