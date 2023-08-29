@@ -1,4 +1,10 @@
 ---
+Name: idsk-elemental-config
+---
+SilverStripe\Core\Injector\Injector:
+  DNADesign\Elemental\Models\ElementalArea:
+    class: TJBW\IdSkElemental\Models\ElementalArea
+---
 Name: modules-idsk-elemental-config
 Before: modules-other
 ---
