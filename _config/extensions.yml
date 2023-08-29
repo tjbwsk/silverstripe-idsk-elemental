@@ -9,3 +9,14 @@ DNADesign\Elemental\Models\BaseElement:
   extensions:
     - TJBW\IdSkElemental\Extensions\BaseElementExtension
     - TJBW\IdSkElemental\Extensions\TitleCaptionExtension
+---
+Name: idsk-elemental-accordion-extensions
+Only:
+  moduleexists: dynamic/silverstripe-elemental-accordion
+---
+Dynamic\Elements\Accordion\Elements\ElementAccordion:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\ElementAccordionExtension
+Dynamic\Elements\Accordion\Model\AccordionPanel:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\AccordionPanelExtension

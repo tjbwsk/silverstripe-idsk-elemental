@@ -19,6 +19,9 @@
         "rasstislav/silverstripe-idsk-theme": "*",
         "dnadesign/silverstripe-elemental": "*"
     },
+    "suggest": {
+        "dynamic/silverstripe-elemental-accordion": "Display content in collapsable panels."
+    },
     "autoload": {
         "psr-4": {
             "TJBW\\IdSkElemental\\": "src/"
