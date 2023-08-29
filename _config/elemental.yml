@@ -16,3 +16,13 @@ DNADesign\ElementalUserForms\Model\ElementForm:
   block_default_userforms_js: true
   block_default_userforms_css: true
   enable_are_you_sure: false
+---
+Name: idsk-elemental-blog-config
+Only:
+  moduleexists: dynamic/silverstripe-elemental-blog
+---
+SilverStripe\CMS\Model\SiteTree:
+  disallowed_elements:
+    - Dynamic\Elements\Blog\Elements\ElementBlogOverview
+    - Dynamic\Elements\Blog\Elements\ElementBlogPagination
+    - Dynamic\Elements\Blog\Elements\ElementBlogWidgets

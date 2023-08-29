@@ -24,7 +24,8 @@
     "suggest": {
         "dnadesign/silverstripe-elemental-virtual": "Adds ability for Elemental to share content blocks between pages.",
         "dynamic/silverstripe-elemental-accordion": "Display content in collapsable panels.",
-        "dnadesign/silverstripe-elemental-userforms": "Adds a new element for usersforms."
+        "dnadesign/silverstripe-elemental-userforms": "Adds a new element for usersforms.",
+        "dynamic/silverstripe-elemental-blog": "Show recent posts from a featured blog."
     },
     "autoload": {
         "psr-4": {
