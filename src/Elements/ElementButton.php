@@ -3,6 +3,9 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use gorriecoe\Link\Models\Link;
+use gorriecoe\LinkField\LinkField;
+use SilverStripe\Forms\FieldList;
 use TJBW\IdSkElemental\Extensions\ElementVariation;
 
 /**
@@ -28,22 +31,40 @@ class ElementButton extends BaseElement
     private static $displays_title_in_template = false;
 
     private static $db = [
-        // TODO: RedirectionType (\SilverStripe\CMS\Model\RedirectorPage)
-        'URL' => 'Varchar(2083)',
-        'TargetBlank' => 'Boolean',
         'StartButton' => 'Boolean',
     ];
 
+    private static $has_one = [
+        'Action' => Link::class,
+    ];
+
     private static $field_labels = [
-        'URL' => 'Odkaz',
-        'TargetBlank' => 'Otvoriť odkaz v novom okne',
+        'Title' => 'Interný názov',
         'StartButton' => 'Spúšťacie tlačidlo (so šípkou)',
+        'Action' => 'Odkaz',
     ];
 
     private static $variants = [
         'idsk-button--secondary' => 'Sekundárne (sivé)',
         'idsk-button--warning' => 'Výstražné (červené)',
     ];
+
+    public function getCMSFields()
+    {
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $fields->replaceField('ActionID',
+                LinkField::create(
+                    'Action',
+                    $this->fieldLabel('Action'),
+                    $this,
+                )
+            );
+
+            $fields->insertBefore('StartButton', $fields->dataFieldByName('Action'));
+        });
+
+        return parent::getCMSFields();
+    }
 
     public function getType()
     {

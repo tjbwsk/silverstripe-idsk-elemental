@@ -19,7 +19,8 @@
         "rasstislav/silverstripe-idsk-theme": "*",
         "dnadesign/silverstripe-elemental": "*",
         "heyday/silverstripe-menumanager": "*",
-        "symbiote/silverstripe-gridfieldextensions": "*"
+        "symbiote/silverstripe-gridfieldextensions": "*",
+        "gorriecoe/silverstripe-linkfield": "*"
     },
     "suggest": {
         "dnadesign/silverstripe-elemental-virtual": "Adds ability for Elemental to share content blocks between pages.",
