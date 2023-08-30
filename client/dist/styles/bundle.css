@@ -1,0 +1,19 @@
+.titleinputgroup .input-group-text .dropdown {
+  border: 0;
+  box-shadow: none;
+  height: 100%;
+  cursor: pointer;
+}
+
+.titleinputgroup .input-group > input.text {
+  min-width: 200px;
+}
+
+.titleinputgroup .input-group-append .form-check-input {
+  margin-left: 0;
+  position: relative;
+}
+
+.titleinputgroup .input-group-append .form-check-label {
+  cursor: pointer;
+}

@@ -27,7 +27,13 @@
         "dnadesign/silverstripe-elemental-userforms": "Adds a new element for usersforms.",
         "dynamic/silverstripe-elemental-blog": "Show recent posts from a featured blog.",
         "silverstripe/elemental-fileblock": "A file block for the silverstripe-elemental module.",
-        "dynamic/silverstripe-elemental-embedded-code": "Embed code like iFrames or Javascript on a page."
+        "dynamic/silverstripe-elemental-embedded-code": "Embed code like iFrames or Javascript on a page.",
+        "wedevelopnl/silverstripe-elemental-grid": "Elemental grid module"
+    },
+    "extra": {
+        "expose": [
+            "client/dist"
+        ]
     },
     "autoload": {
         "psr-4": {

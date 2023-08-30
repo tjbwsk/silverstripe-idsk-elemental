@@ -36,6 +36,7 @@ class ElementIntroBlock extends BaseElement
     private static $description = 'Úvodný blok stránky slúži ako jedna z foriem navigácie používateľa po webovom sídle.';
 
     private static $inline_editable = false;
+    private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
 
     private static $db = [

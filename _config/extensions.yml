@@ -28,3 +28,24 @@ Only:
 DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - TJBW\IdSkElemental\Extensions\ElementFormExtension
+---
+Name: idsk-elemental-grid-extensions
+Only:
+  moduleexists: wedevelopnl/silverstripe-elemental-grid
+---
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\GridBaseElementExtension
+WeDevelop\ElementalGrid\Models\ElementRow:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\ElementRowExtension
+---
+Name: idsk-elemental-virtual-grid-extensions
+Only:
+  moduleexists:
+    - wedevelopnl/silverstripe-elemental-grid
+    - dnadesign/silverstripe-elemental-virtual
+---
+DNADesign\ElementalVirtual\Model\ElementVirtual:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\ElementVirtualExtension

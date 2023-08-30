@@ -28,6 +28,16 @@ class TitleCaptionExtension extends DataExtension
 
     public function getCaptionSizeClass(): string
     {
-        return 'govuk-caption-l';
+        $titleSizeClasses = [
+            'h1' => 'govuk-caption-xl',
+            'h2' => 'govuk-caption-l',
+            'h3' => 'govuk-caption-m',
+        ];
+
+        if (!$this->owner->TitleClass) {
+            return 'govuk-caption-l';
+        }
+
+        return $titleSizeClasses[$this->owner->TitleClass] ?? 'govuk-caption-m';
     }
 }

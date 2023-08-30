@@ -4,6 +4,9 @@ Name: idsk-elemental-config
 SilverStripe\Core\Injector\Injector:
   DNADesign\Elemental\Models\ElementalArea:
     class: TJBW\IdSkElemental\Models\ElementalArea
+SilverStripe\Admin\LeftAndMain:
+  extra_requirements_css:
+    - 'tjbw/silverstripe-idsk-elemental:client/dist/styles/bundle.css'
 ---
 Name: modules-idsk-elemental-config
 Before: modules-other

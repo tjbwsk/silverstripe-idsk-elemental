@@ -4,6 +4,7 @@ namespace TJBW\IdSkElemental\Models;
 
 use DNADesign\Elemental\Models\ElementalArea as VendorElementalArea;
 use DNADesign\ElementalVirtual\Model\ElementVirtual;
+use SilverStripe\ORM\ArrayList;
 use TJBW\IdSkElemental\Elements\ElementPhaseBanner;
 
 class ElementalArea extends VendorElementalArea
@@ -12,8 +13,24 @@ class ElementalArea extends VendorElementalArea
     {
         $controllers = parent::ElementControllers();
 
+        $this->unsetFirstPhaseBanner($controllers);
+
+        return $controllers;
+    }
+
+    public function ElementControllersWithRows(): ?ArrayList
+    {
+        if ($controllers = parent::ElementControllersWithRows()) {
+            $this->unsetFirstPhaseBanner($controllers, 1);
+        }
+
+        return $controllers;
+    }
+
+    public function unsetFirstPhaseBanner($controllers, $index = 0)
+    {
         if (
-            ($firstElement = ($firstController = $controllers[0] ?? null) ? $firstController->getElement() : null)
+            ($firstElement = ($firstController = $controllers[$index] ?? null) ? $firstController->getElement() : null)
             && (
                 $firstElement instanceof ElementPhaseBanner
                 || (
@@ -23,10 +40,8 @@ class ElementalArea extends VendorElementalArea
                 )
             )
         ) {
-            $controllers->offsetUnset(0);
+            $controllers->offsetUnset($index);
         }
-
-        return $controllers;
     }
 
     public function forTemplate()

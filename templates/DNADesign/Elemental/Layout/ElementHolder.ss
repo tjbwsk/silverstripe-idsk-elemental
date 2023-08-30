@@ -1,3 +1,3 @@
-<div id="$Anchor"<% if $StyleVariant %> class="$StyleVariant"<% end_if %>>
+<div id="$Anchor" class="$Element.ColumnClasses<% if $StyleVariant %> $StyleVariant<% end_if %>">
 	$Element
 </div>

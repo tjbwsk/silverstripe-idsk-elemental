@@ -33,3 +33,43 @@ Only:
 ---
 SilverStripe\ElementalFileBlock\Block\FileBlock:
   displays_title_caption_field: false
+---
+Name: idsk-elemental-grid-config
+After: '#elementalgrid'
+Only:
+  moduleexists: wedevelopnl/silverstripe-elemental-grid
+---
+WeDevelop\ElementalGrid\ElementalConfig:
+  css_framework: 'id-sk'
+---
+Name: idsk-elemental-grid-config-db-reset
+Only:
+  moduleexists: wedevelopnl/silverstripe-elemental-grid
+---
+WeDevelop\ElementalGrid\Extensions\BaseElementExtension:
+  db: null
+WeDevelop\ElementalGrid\Models\ElementRow:
+  db: null
+---
+Name: idsk-elemental-grid-config-db
+Only:
+  moduleexists: wedevelopnl/silverstripe-elemental-grid
+---
+WeDevelop\ElementalGrid\Extensions\BaseElementExtension:
+  db:
+    SizeMD: Int
+    SizeLG: Int
+    TitleClass: Varchar(255)
+    TitleTag: Varchar(3)
+WeDevelop\ElementalGrid\Models\ElementRow:
+  db: []
+---
+Name: idsk-elemental-file-grid-config
+Only:
+  moduleexists:
+    - wedevelopnl/silverstripe-elemental-grid
+    - silverstripe/elemental-fileblock
+---
+SilverStripe\ElementalFileBlock\Block\FileBlock:
+  displays_title_tag_field: false
+  displays_title_class_field: false

@@ -8,6 +8,7 @@ use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\View\TemplateGlobalProvider;
+use WeDevelop\ElementalGrid\Models\ElementRow;
 
 /**
  * @see https://idsk.gov.sk/komponenty/oznacenie-verzie-sluzby
@@ -23,6 +24,8 @@ class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
     private static $description = 'Označenie testovacej verzie služby a novo spustenej služby.';
 
     private static $displays_title_caption_field = false;
+    private static $displays_title_tag_field = false;
+    private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
 
     private static $db = [
@@ -54,7 +57,11 @@ class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
                 ($currRecord = Controller::curr()->data()) instanceof SiteTree
                 || ($currRecord = $currRecord instanceof BaseElement ? $currRecord->Parent()->getOwnerPage() : null)
             )
-            && ($firstElement = $currRecord->ElementalArea()->Elements()->first())
+            && ($firstElement = ($elements = $currRecord->ElementalArea()->Elements())->first())
+            && (
+                !class_exists(ElementRow::class)
+                || ($firstElement = ($firstElement instanceof ElementRow ? $elements[1] ?? null : $firstElement))
+            )
             && (
                 $firstElement instanceof static
                 || (

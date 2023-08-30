@@ -15,6 +15,8 @@ class ElementSeparator extends BaseElement
     private static $description = 'Oddeľovač použite vtedy, keď chcete vizuálne oddeliť jednotlivé časti obsahu na stránke.';
 
     private static $displays_title_caption_field = false;
+    private static $displays_title_tag_field = false;
+    private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
     private static $search_indexable = false;
 

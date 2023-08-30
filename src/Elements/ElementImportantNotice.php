@@ -18,6 +18,8 @@ class ElementImportantNotice extends BaseElement
     private static $description = 'Zobrazuje oznam s varovaním.';
 
     private static $displays_title_caption_field = false;
+    private static $displays_title_tag_field = false;
+    private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
 
     private static $db = [
