@@ -10,6 +10,14 @@ DNADesign\Elemental\Models\BaseElement:
     - TJBW\IdSkElemental\Extensions\BaseElementExtension
     - TJBW\IdSkElemental\Extensions\TitleCaptionExtension
 ---
+Name: idsk-fluent-extensions
+Only:
+  moduleexists: tractorcow/silverstripe-fluent
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\SiteTreeFluentExtension
+---
 Name: idsk-elemental-accordion-extensions
 Only:
   moduleexists: dynamic/silverstripe-elemental-accordion
