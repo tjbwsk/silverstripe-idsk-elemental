@@ -51,6 +51,16 @@ class ElementIntroBlock extends BaseElement
         'SideMenuItems' => MenuItem::class,
     ];
 
+    private static $cascade_deletes = [
+        'BottomMenuItems',
+        'SideMenuItems',
+    ];
+
+    private static $cascade_duplicates = [
+        'BottomMenuItems',
+        'SideMenuItems',
+    ];
+
     private static $field_labels = [
         'Content' => 'Obsah',
         'ShowSearchForm' => 'Zobraziť vyhľadávanie',

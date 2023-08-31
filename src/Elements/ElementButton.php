@@ -38,6 +38,14 @@ class ElementButton extends BaseElement
         'Action' => Link::class,
     ];
 
+    private static $cascade_deletes = [
+        'Action',
+    ];
+
+    private static $cascade_duplicates = [
+        'Action',
+    ];
+
     private static $field_labels = [
         'Title' => 'Interný názov',
         'StartButton' => 'Spúšťacie tlačidlo (so šípkou)',

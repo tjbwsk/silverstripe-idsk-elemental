@@ -42,6 +42,10 @@ class ElementTimeline extends BaseElement
         'Items',
     ];
 
+    private static $cascade_deletes = [
+        'Items',
+    ];
+
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
