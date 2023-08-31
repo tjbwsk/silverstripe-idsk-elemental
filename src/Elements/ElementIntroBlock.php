@@ -75,6 +75,20 @@ class ElementIntroBlock extends BaseElement
         'app-pane-blue' => 'Modré zobrazenie',
     ];
 
+    public function onBeforeDelete()
+    {
+        $deletes = $this->findCascadeDeletes(false);
+
+        $this->BottomMenuItems()->removeAll();
+        $this->SideMenuItems()->removeAll();
+
+        foreach ($deletes as $delete) {
+            $delete->delete();
+        }
+
+        parent::onBeforeDelete();
+    }
+
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
