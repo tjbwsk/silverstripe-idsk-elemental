@@ -7,16 +7,19 @@ use SilverStripe\Control\Controller;
 use SilverStripe\Control\HTTPResponse_Exception;
 use SilverStripe\Core\Convert;
 use SilverStripe\Core\Injector\Injector;
+use SilverStripe\Forms\Form;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridField_URLHandler;
 use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\DataObjectInterface;
 use SilverStripe\ORM\FieldType\DBField;
+use SilverStripe\ORM\ManyManyThroughList;
 use SilverStripe\View\ArrayData;
 use SilverStripe\View\Requirements;
 use Symbiote\GridFieldExtensions\GridFieldAddNewInlineButton as VendorGridFieldAddNewInlineButton;
 use Symbiote\GridFieldExtensions\GridFieldEditableColumns;
 use Symbiote\GridFieldExtensions\GridFieldExtensions;
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
 /**
  * Builds on the {@link GridFieldEditableColumns} component to allow creating new records.
@@ -71,12 +74,8 @@ class GridFieldAddNewInlineButton extends VendorGridFieldAddNewInlineButton impl
         foreach ($grid->getColumns() as $column) {
             if (in_array($column, $handled ?? [])) {
                 $field = $fields->dataFieldByName($column);
-                $field->setName(sprintf(
-                    '%s[%s][{%%=o.num%%}][%s]',
-                    $grid->getName(),
-                    self::POST_KEY,
-                    $field->getName()
-                ));
+
+                $field->setName($this->getFieldName($field->getName(), $grid, '{%=o.num%}'));
 
                 if ($record && $record->hasField($column)) {
                     $field->setValue($record->getField($column));
@@ -112,6 +111,75 @@ class GridFieldAddNewInlineButton extends VendorGridFieldAddNewInlineButton impl
         }
 
         return $columns->renderWith('Symbiote\\GridFieldExtensions\\GridFieldAddNewInlineRow');
+    }
+
+    public function handleSave(GridField $grid, DataObjectInterface $record)
+    {
+        $list  = $grid->getList();
+        $value = $grid->Value();
+
+        if (!isset($value[self::POST_KEY]) || !is_array($value[self::POST_KEY])) {
+            return;
+        }
+
+        $class    = $grid->getModelClass();
+        /** @var GridFieldEditableColumns $editable */
+        $editable = $grid->getConfig()->getComponentByType(GridFieldEditableColumns::class);
+        /** @var GridFieldOrderableRows $sortable */
+        $sortable = $grid->getConfig()->getComponentByType(GridFieldOrderableRows::class);
+
+        if (!singleton($class)->canCreate()) {
+            return;
+        }
+
+        foreach ($value[self::POST_KEY] as $fields) {
+            /** @var DataObject $item */
+            $item  = $class::create();
+
+            // Add the item before the form is loaded so that the join-object is available
+            if ($list instanceof ManyManyThroughList) {
+                $list->add($item);
+            }
+
+            $extra = array();
+
+            $form = $editable->getForm($grid, $item);
+            $form->loadDataFrom($fields, Form::MERGE_CLEAR_MISSING);
+            $form->saveInto($item);
+
+            // Check if we are also sorting these records
+            if ($sortable) {
+                $sortField = $sortable->getSortField();
+                $item->setField($sortField, $fields[$sortField]);
+            }
+
+            if ($list instanceof ManyManyList) {
+                $extra = array_intersect_key($form->getData() ?? [], (array) $list->getExtraFields());
+            }
+
+            $item->write(false, false, false, true);
+
+            if ($relations = $fields['Relations'] ?? null) {
+                foreach ($relations as $relation => $data) {
+                    $relationList = $item->$relation();
+
+                    foreach ($data as $index => $fields) {
+                        $relationItem = $relationList->dataClass()::create();
+
+                        foreach ($fields as $field => $value) {
+                            $relationItem->$field = $value;
+                        }
+
+                        $relationList->add($relationItem);
+                    }
+                }
+            }
+
+            // Add non-through lists after the write. many_many_extraFields are added there too
+            if (!($list instanceof ManyManyThroughList)) {
+                $list->add($item, $extra);
+            }
+        }
     }
 
     public function getURLHandlers($grid)
@@ -159,10 +227,14 @@ class GridFieldAddNewInlineButton extends VendorGridFieldAddNewInlineButton impl
         return $form;
     }
 
-    protected function getFieldName($name, GridField $grid, int $recordId)
+    protected function getFieldName($name, GridField $grid, string $recordId)
     {
+        if (!str_starts_with($name, '[Relations]')) {
+            $name = "[$name]";
+        }
+
         return sprintf(
-            '%s[%s][%s][%s]',
+            '%s[%s][%s]%s',
             $grid->getName(),
             self::POST_KEY,
             $recordId,

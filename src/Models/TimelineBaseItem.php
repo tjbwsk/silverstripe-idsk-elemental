@@ -18,7 +18,7 @@ class TimelineBaseItem extends DataObject
 
     private static $db = [
         'Sort' => 'Int',
-     ];
+    ];
 
     private static $has_one = [
         'Timeline' => ElementTimeline::class,
