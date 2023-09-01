@@ -1,11 +1,11 @@
 <?php
 
-namespace TJBW\IdSkElemental\Models;
+namespace TJBW\IdSkElemental\Models\Timeline;
 
 use SilverStripe\Forms\FieldList;
 use TJBW\IdSkElemental\Forms\NullableTimeField;
 
-class TimelineContentItem extends TimelineBaseItem
+class ContentItem extends BaseItem
 {
     private static $table_name = 'TimelineContentItem';
 

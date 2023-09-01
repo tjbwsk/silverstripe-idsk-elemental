@@ -9,7 +9,7 @@ use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use TJBW\IdSkElemental\Models;
+use TJBW\IdSkElemental\Models\Timeline;
 
 /**
  * @see https://idsk.gov.sk/komponenty/timeline
@@ -35,7 +35,7 @@ class ElementTimeline extends BaseElement
     ];
 
     private static $has_many = [
-        'Items' => Models\TimelineBaseItem::class,
+        'Items' => Timeline\BaseItem::class,
     ];
 
     private static $owns = [
@@ -60,9 +60,9 @@ class ElementTimeline extends BaseElement
                     ->addComponent(
                         GridFieldAddNewMultiClass::create()
                             ->setClasses([
-                                Models\TimelineSeparatorItem::class,
-                                Models\TimelineTitleItem::class,
-                                Models\TimelineContentItem::class,
+                                Timeline\SeparatorItem::class,
+                                Timeline\TitleItem::class,
+                                Timeline\ContentItem::class,
                             ])
                     )
                     ->removeComponentsByType(GridFieldAddNewButton::class)

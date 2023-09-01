@@ -1,8 +1,8 @@
 <?php
 
-namespace TJBW\IdSkElemental\Models;
+namespace TJBW\IdSkElemental\Models\Timeline;
 
-class TimelineSeparatorItem extends TimelineBaseItem
+class SeparatorItem extends BaseItem
 {
     private static $table_name = 'TimelineSeparatorItem';
 

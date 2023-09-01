@@ -1,8 +1,8 @@
 <?php
 
-namespace TJBW\IdSkElemental\Models;
+namespace TJBW\IdSkElemental\Models\Timeline;
 
-class TimelineTitleItem extends TimelineBaseItem
+class TitleItem extends BaseItem
 {
     private static $table_name = 'TimelineTitleItem';
 
