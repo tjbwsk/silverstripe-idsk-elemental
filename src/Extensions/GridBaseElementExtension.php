@@ -8,6 +8,7 @@ use TJBW\IdSkElemental\CSSFramework\IdSkCSSFramework;
 use TJBW\IdSkElemental\Forms\TitleInputGroupField;
 use WeDevelop\ElementalGrid\CSSFramework\CSSFrameworkInterface;
 use WeDevelop\ElementalGrid\ElementalConfig;
+use WeDevelop\ElementalGrid\Models\ElementRow;
 
 class GridBaseElementExtension extends DataExtension
 {
@@ -125,5 +126,14 @@ class GridBaseElementExtension extends DataExtension
     public function getTitleSizeClass(): string
     {
         return $this->owner->getCSSFramework()->getTitleSizeClass();
+    }
+
+    public function getAnchorTitle(): string
+    {
+        if (!($ID = $this->owner->ID) && $this->owner instanceof ElementRow) {
+            $ID = $this->owner->Parent()->ID;
+        }
+
+        return $this->owner->singular_name() . '_' . $this->owner->getTitle() . '_' . $ID;
     }
 }

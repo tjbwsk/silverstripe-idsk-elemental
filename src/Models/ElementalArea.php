@@ -21,6 +21,10 @@ class ElementalArea extends VendorElementalArea
     public function ElementControllersWithRows(): ?ArrayList
     {
         if ($controllers = parent::ElementControllersWithRows()) {
+            if (($firstElement = $controllers->first()->getElement()) instanceof ElementRow && !$firstElement->ID) {
+                $firstElement->ParentID = $this->owner->ID;
+            }
+
             $this->unsetFirstPhaseBanner($controllers, 1);
         }
 
