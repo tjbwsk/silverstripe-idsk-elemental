@@ -20,7 +20,8 @@
         "dnadesign/silverstripe-elemental": "*",
         "heyday/silverstripe-menumanager": "*",
         "symbiote/silverstripe-gridfieldextensions": "*",
-        "gorriecoe/silverstripe-linkfield": "*"
+        "gorriecoe/silverstripe-linkfield": "*",
+        "dnadesign/silverstripe-elemental-list": "*"
     },
     "suggest": {
         "dnadesign/silverstripe-elemental-virtual": "Adds ability for Elemental to share content blocks between pages.",
@@ -29,7 +30,8 @@
         "dynamic/silverstripe-elemental-blog": "Show recent posts from a featured blog.",
         "silverstripe/elemental-fileblock": "A file block for the silverstripe-elemental module.",
         "dynamic/silverstripe-elemental-embedded-code": "Embed code like iFrames or Javascript on a page.",
-        "wedevelopnl/silverstripe-elemental-grid": "Elemental grid module"
+        "wedevelopnl/silverstripe-elemental-grid": "Elemental grid module.",
+        "arillo/silverstripe-multiselectfield": "A sortable multiple select field for managing many-to-many relations."
     },
     "extra": {
         "expose": [

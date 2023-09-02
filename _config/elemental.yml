@@ -1,4 +1,9 @@
 ---
+Name: idsk-elemental-my-config
+---
+DNADesign\ElementalList\Model\ElementList:
+  displays_remove_component_bottom_margin_field: false
+---
 Name: idsk-elemental-virtual-config
 Only:
   moduleexists: dnadesign/silverstripe-elemental-virtual
@@ -22,6 +27,11 @@ Only:
   moduleexists: dynamic/silverstripe-elemental-blog
 ---
 SilverStripe\CMS\Model\SiteTree:
+  disallowed_elements:
+    - Dynamic\Elements\Blog\Elements\ElementBlogOverview
+    - Dynamic\Elements\Blog\Elements\ElementBlogPagination
+    - Dynamic\Elements\Blog\Elements\ElementBlogWidgets
+DNADesign\ElementalList\Model\ElementList:
   disallowed_elements:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
     - Dynamic\Elements\Blog\Elements\ElementBlogPagination
