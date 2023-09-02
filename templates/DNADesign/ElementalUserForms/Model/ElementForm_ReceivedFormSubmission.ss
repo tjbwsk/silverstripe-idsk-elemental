@@ -1,3 +1,3 @@
 <div class="govuk-body">
-    $OnCompleteMessage
+	$OnCompleteMessage
 </div>
