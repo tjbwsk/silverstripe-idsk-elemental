@@ -28,6 +28,7 @@ class ElementImportantNotice extends BaseElement
 
     private static $field_labels = [
         'Title' => 'Interný názov',
+        'Content' => 'Obsah',
     ];
 
     public function getCMSFields()

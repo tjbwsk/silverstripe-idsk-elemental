@@ -33,6 +33,7 @@ class ElementAddress extends BaseElement
     private static $field_labels = [
         'PrimaryTitle' => 'Hlavný nadpis (H2)',
         'SecondaryTitle' => 'Vedľajší nadpis (H3)',
+        'Content' => 'Obsah',
         'URL' => 'Odkaz na mapu (URL)',
     ];
 
