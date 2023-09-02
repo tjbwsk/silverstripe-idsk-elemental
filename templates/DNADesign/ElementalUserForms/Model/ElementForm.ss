@@ -1,2 +1,6 @@
 <% include TJBW/IdSkElemental/Includes/ElementTitle %>
-$Form
+<% if $RemoveComponentBottomMargin %>
+	$Form.setAttribute('class', 'idsk-form reset-margin-bottom')
+<% else %>
+	$Form.setAttribute('class', 'idsk-form')
+<% end_if %>

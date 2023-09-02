@@ -1,1 +1,1 @@
-<hr class="idsk-hr-separator govuk-!-margin-bottom-6">
+<hr class="idsk-hr-separator govuk-!-margin-top-6 govuk-!-margin-bottom-6">

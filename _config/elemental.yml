@@ -34,6 +34,13 @@ Only:
 SilverStripe\ElementalFileBlock\Block\FileBlock:
   displays_title_caption_field: false
 ---
+Name: idsk-elemental-embedded-code-config
+Only:
+  moduleexists: dynamic/silverstripe-elemental-embedded-code
+---
+Dynamic\Elements\Embedded\Elements\ElementEmbeddedCode:
+  displays_remove_component_bottom_margin_field: false
+---
 Name: idsk-elemental-grid-config
 After: '#elementalgrid'
 Only:

@@ -9,6 +9,7 @@ DNADesign\Elemental\Models\BaseElement:
   extensions:
     - TJBW\IdSkElemental\Extensions\BaseElementExtension
     - TJBW\IdSkElemental\Extensions\TitleCaptionExtension
+    - TJBW\IdSkElemental\Extensions\ComponentExtension
 ---
 Name: idsk-fluent-extensions
 Only:

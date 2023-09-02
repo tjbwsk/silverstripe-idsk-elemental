@@ -27,6 +27,7 @@ class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
     private static $displays_title_tag_field = false;
     private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
+    private static $displays_remove_component_bottom_margin_field = false;
 
     private static $db = [
         'Content' => 'HTMLText',

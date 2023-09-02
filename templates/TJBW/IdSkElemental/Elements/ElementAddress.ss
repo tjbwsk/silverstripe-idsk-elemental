@@ -11,7 +11,7 @@
 				</div>
 			</div>
 			<iframe
-				class="idsk-address__map govuk-!-margin-bottom-0"
+				class="idsk-address__map<% if $RemoveComponentBottomMargin %> govuk-!-margin-bottom-0<% else %> govuk-!-margin-bottom-6<% end_if %>"
 				loading="lazy"
 				allowfullscreen
 				src="$URL"
