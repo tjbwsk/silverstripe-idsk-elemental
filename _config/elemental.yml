@@ -26,6 +26,8 @@ Name: idsk-elemental-blog-config
 Only:
   moduleexists: dynamic/silverstripe-elemental-blog
 ---
+SilverStripe\Blog\Model\BlogPost:
+  elemental_keep_content_field: true
 SilverStripe\CMS\Model\SiteTree:
   disallowed_elements:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
