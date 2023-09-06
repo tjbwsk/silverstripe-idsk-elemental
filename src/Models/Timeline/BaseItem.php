@@ -5,7 +5,6 @@ namespace TJBW\IdSkElemental\Models\Timeline;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
-use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use TJBW\IdSkElemental\Elements\ElementTimeline;
 
 class BaseItem extends DataObject
