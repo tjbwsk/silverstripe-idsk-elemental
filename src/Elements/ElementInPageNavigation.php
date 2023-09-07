@@ -24,8 +24,6 @@ class ElementInPageNavigation extends ElementList
     private static $plural_name = 'Navigácia na stránke';
     private static $description = 'Navigácia na stránke zobrazuje používateľovi prehľad obsahu danej stránky (na základe použitých nadpisov v rámci stránky).';
 
-    private static $inline_editable = false;
-
     private static $many_many = [
         'NavigationItems' => BaseElement::class,
     ];

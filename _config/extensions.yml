@@ -1,6 +1,9 @@
 ---
 Name: idsk-elemental-extensions
 ---
+SilverStripe\ORM\FieldType\DBString:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\DBStringExtension
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - DNADesign\Elemental\Extensions\ElementalPageExtension

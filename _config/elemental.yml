@@ -1,8 +1,13 @@
 ---
 Name: idsk-elemental-my-config
 ---
+SilverStripe\CMS\Model\SiteTree:
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementTab
 DNADesign\ElementalList\Model\ElementList:
   displays_remove_component_bottom_margin_field: false
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementTab
 ---
 Name: idsk-elemental-virtual-config
 Only:
