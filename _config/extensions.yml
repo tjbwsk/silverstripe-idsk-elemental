@@ -52,10 +52,9 @@ WeDevelop\ElementalGrid\Models\ElementRow:
   extensions:
     - TJBW\IdSkElemental\Extensions\ElementRowExtension
 ---
-Name: idsk-elemental-virtual-grid-extensions
+Name: idsk-elemental-virtual-extensions
 Only:
   moduleexists:
-    - wedevelopnl/silverstripe-elemental-grid
     - dnadesign/silverstripe-elemental-virtual
 ---
 DNADesign\ElementalVirtual\Model\ElementVirtual:

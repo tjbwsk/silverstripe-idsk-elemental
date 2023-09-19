@@ -17,6 +17,9 @@ DNADesign\Elemental\Models\BaseElement:
   default_global_elements: false
 DNADesign\ElementalVirtual\Model\ElementVirtual:
   displays_title_caption_field: false
+SilverStripe\CMS\Model\SiteTree:
+  allowed_footer_types:
+    - DNADesign\ElementalVirtual\Model\ElementVirtual
 ---
 Name: idsk-elemental-userforms-config
 Only:
@@ -26,6 +29,14 @@ DNADesign\ElementalUserForms\Model\ElementForm:
   block_default_userforms_js: true
   block_default_userforms_css: true
   enable_are_you_sure: false
+SilverStripe\CMS\Model\SiteTree:
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementFooterFeedback
+  allowed_footer_types:
+    - TJBW\IdSkElemental\Elements\ElementFooterFeedback
+DNADesign\ElementalList\Model\ElementList:
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementFooterFeedback
 ---
 Name: idsk-elemental-blog-config
 Only:
