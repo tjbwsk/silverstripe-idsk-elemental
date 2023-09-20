@@ -3,7 +3,7 @@
 <% if $PostsList %>
 	<div class="idsk-card-list<% if $RemoveComponentBottomMargin && not $Blog %> reset-margin-bottom<% end_if %>">
 		<% loop $PostsList %>
-			<% include SilverStripe/Blog/PostSummary %>
+			<% include SilverStripe/Blog/PostSummary ShowBlogTitle=$Top.ShowBlogTitleInPosts %>
 		<% end_loop %>
 	</div>
 	<% if $Blog %>

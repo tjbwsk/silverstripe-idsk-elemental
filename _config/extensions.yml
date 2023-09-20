@@ -41,6 +41,14 @@ DNADesign\ElementalUserForms\Model\ElementForm:
   extensions:
     - TJBW\IdSkElemental\Extensions\ElementFormExtension
 ---
+Name: idsk-elemental-blog-extensions
+Only:
+  moduleexists: dynamic/silverstripe-elemental-blog
+---
+Dynamic\Elements\Blog\Elements\ElementBlogPosts:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\ElementBlogPostsExtension
+---
 Name: idsk-elemental-grid-extensions
 Only:
   moduleexists: wedevelopnl/silverstripe-elemental-grid
