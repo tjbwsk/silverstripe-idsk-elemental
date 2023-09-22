@@ -49,6 +49,14 @@ Dynamic\Elements\Blog\Elements\ElementBlogPosts:
   extensions:
     - TJBW\IdSkElemental\Extensions\ElementBlogPostsExtension
 ---
+Name: idsk-elemental-file-extensions
+Only:
+  moduleexists: silverstripe/elemental-fileblock
+---
+SilverStripe\ElementalFileBlock\Block\FileBlock:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\FileBlockExtension
+---
 Name: idsk-elemental-grid-extensions
 Only:
   moduleexists: wedevelopnl/silverstripe-elemental-grid
