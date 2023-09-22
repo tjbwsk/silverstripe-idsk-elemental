@@ -3,7 +3,7 @@
 		<div class="govuk-width-container">
 			<div id="idsk-footer-extended-feedback" class="idsk-footer-extended-feedback-text<% if $FormName && not $isValid %> idsk-footer-extended-display-none<% end_if %>">
 				<div class="idsk-footer-extended-feedback-container">
-					<div id="idsk-footer-extended-info-question"<% if $CurrentPage.Action == 'finished' %> class="idsk-footer-extended-heart"<% end_if %>>
+					<div id="idsk-footer-extended-info-question"<% if not $FormName %> class="idsk-footer-extended-heart"<% end_if %>>
 						<div class="govuk-grid-column-two-thirds idsk-footer-extended-usefull-question">
 							<span class="idsk-footer-extended-feedback-question-info-usefull">
 								Boli tieto informácie pre vás užitočné?
@@ -40,9 +40,9 @@
 							</div>
 						</div>
 					</div>
-					<div id="idsk-footer-extended-heart" class="idsk-footer-extended-heart govuk-grid-column-full<% if $CurrentPage.Action == 'finished' %> idsk-footer-extended-heart-visible<% end_if %>">
-						<% if $CurrentPage.Action == 'finished' %>
-							$Top.OnCompleteMessage
+					<div id="idsk-footer-extended-heart" class="idsk-footer-extended-heart govuk-grid-column-full<% if not $FormName %> idsk-footer-extended-heart-visible<% end_if %>">
+						<% if not $FormName %>
+							<div id="uff">$Top.OnCompleteMessage</div>
 						<% else %>
 							Ďakujeme za Vašu spätnú väzbu
 							<svg class="idsk-footer-extended-heart--svg" width="291" height="22" viewbox="263 -4 291 22" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
