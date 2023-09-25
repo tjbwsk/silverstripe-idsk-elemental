@@ -1,9 +1,6 @@
 ---
 Name: idsk-elemental-config
 ---
-SilverStripe\Core\Injector\Injector:
-  DNADesign\Elemental\Models\ElementalArea:
-    class: TJBW\IdSkElemental\Models\ElementalArea
 SilverStripe\Admin\LeftAndMain:
   extra_requirements_css:
     - 'tjbw/silverstripe-idsk-elemental:client/dist/styles/bundle.css'
@@ -21,3 +18,11 @@ Only:
 ---
 SilverStripe\UserForms\Model\UserDefinedForm:
   upgrade_on_build: false
+---
+Name: idsk-elemental-model-grid-config
+Only:
+  moduleexists: wedevelopnl/silverstripe-elemental-grid
+---
+SilverStripe\Core\Injector\Injector:
+  WeDevelop\ElementalGrid\Extensions\ElementalAreaExtension:
+    class: TJBW\IdSkElemental\Extensions\ElementalAreaExtension

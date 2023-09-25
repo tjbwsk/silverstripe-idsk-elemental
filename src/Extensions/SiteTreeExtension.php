@@ -3,10 +3,10 @@
 namespace TJBW\IdSkElemental\Extensions;
 
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
+use DNADesign\Elemental\Models\ElementalArea;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 use SilverStripe\ORM\DataExtension;
-use TJBW\IdSkElemental\Models\ElementalArea;
 
 class SiteTreeExtension extends DataExtension
 {

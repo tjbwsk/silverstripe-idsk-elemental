@@ -3,17 +3,12 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
-use DNADesign\ElementalVirtual\Model\ElementVirtual;
-use SilverStripe\CMS\Model\SiteTree;
-use SilverStripe\Control\Controller;
 use SilverStripe\Forms\FieldList;
-use SilverStripe\View\TemplateGlobalProvider;
-use WeDevelop\ElementalGrid\Models\ElementRow;
 
 /**
  * @see https://idsk.gov.sk/komponenty/oznacenie-verzie-sluzby
  */
-class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
+class ElementPhaseBanner extends BaseElement
 {
     private static $table_name = 'ElementPhaseBanner';
 
@@ -49,39 +44,5 @@ class ElementPhaseBanner extends BaseElement implements TemplateGlobalProvider
     public function getType()
     {
         return 'Verzia služby';
-    }
-
-    public static function getElementPhaseBannerIfFirst()
-    {
-        if (
-            (
-                ($currRecord = Controller::curr()->data()) instanceof SiteTree
-                || ($currRecord = $currRecord instanceof BaseElement ? $currRecord->Parent()->getOwnerPage() : null)
-            )
-            && ($firstElement = ($elements = $currRecord->ElementalArea()->Elements())->first())
-            && (
-                !class_exists(ElementRow::class)
-                || ($firstElement = ($firstElement instanceof ElementRow ? $elements[1] ?? null : $firstElement))
-            )
-            && (
-                $firstElement instanceof static
-                || (
-                    class_exists(ElementVirtual::class)
-                    && $firstElement instanceof ElementVirtual
-                    && $firstElement->LinkedElement() instanceof static
-                )
-            )
-        ) {
-            return $firstElement;
-        }
-
-        return null;
-    }
-
-    public static function get_template_global_variables()
-    {
-        return [
-            'MainElementPhaseBanner' => 'getElementPhaseBannerIfFirst',
-        ];
     }
 }
