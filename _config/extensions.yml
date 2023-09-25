@@ -6,18 +6,29 @@ SilverStripe\ORM\FieldType\DBString:
     - TJBW\IdSkElemental\Extensions\DBStringExtension
 SilverStripe\CMS\Model\SiteTree:
   extensions:
+    - DNADesign\Elemental\TopPage\SiteTreeExtension
     - DNADesign\Elemental\Extensions\ElementalPageExtension
     - TJBW\IdSkElemental\Extensions\SiteTreeExtension
 DNADesign\Elemental\Models\BaseElement:
   extensions:
+    - DNADesign\Elemental\TopPage\DataExtension
     - TJBW\IdSkElemental\Extensions\BaseElementExtension
     - TJBW\IdSkElemental\Extensions\TitleCaptionExtension
     - TJBW\IdSkElemental\Extensions\ComponentExtension
+DNADesign\Elemental\Models\ElementalArea:
+  extensions:
+    - DNADesign\Elemental\TopPage\DataExtension
 ---
 Name: idsk-fluent-extensions
 Only:
   moduleexists: tractorcow/silverstripe-fluent
 ---
+DNADesign\Elemental\Models\BaseElement:
+  extensions:
+    - DNADesign\Elemental\TopPage\FluentExtension
+DNADesign\Elemental\Models\ElementalArea:
+  extensions:
+    - DNADesign\Elemental\TopPage\FluentExtension
 SilverStripe\CMS\Model\SiteTree:
   extensions:
     - TJBW\IdSkElemental\Extensions\SiteTreeFluentExtension
