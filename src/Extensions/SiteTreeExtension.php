@@ -4,6 +4,7 @@ namespace TJBW\IdSkElemental\Extensions;
 
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 use SilverStripe\Forms\FieldList;
+use SilverStripe\Forms\Tab;
 use SilverStripe\ORM\DataExtension;
 use TJBW\IdSkElemental\Models\ElementalArea;
 
@@ -63,11 +64,12 @@ class SiteTreeExtension extends DataExtension
             }
 
             $headerArea->setTypes($list);
+
+            $fields->insertAfter('Main', Tab::create('Header', 'Hlavička'));
+            $fields->addFieldToTab('Root.Header', $headerArea);
         }
 
         if ($footerArea = $fields->dataFieldByName('FooterElementalArea')) {
-            $fields->insertAfter('ElementalArea', $footerArea);
-
             $list = [];
 
             foreach ($this->owner->config()->get('allowed_footer_types') as $availableClass) {
@@ -87,6 +89,9 @@ class SiteTreeExtension extends DataExtension
             }
 
             $footerArea->setTypes($list);
+
+            $fields->insertAfter('Header', Tab::create('Footer', 'Pätička'));
+            $fields->addFieldToTab('Root.Footer', $footerArea);
         }
     }
 }
