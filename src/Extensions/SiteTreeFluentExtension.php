@@ -8,6 +8,7 @@ use TractorCow\Fluent\Model\Locale;
 class SiteTreeFluentExtension extends DataExtension
 {
     private static $field_include = [
+        'HeaderElementalAreaID',
         'ElementalAreaID',
         'FooterElementalAreaID',
     ];
@@ -15,6 +16,10 @@ class SiteTreeFluentExtension extends DataExtension
     public function onBeforeWrite()
     {
         if (!$this->owner->isDraftedInLocale() && $this->owner->isInDB()) {
+            $headerElementalArea = $this->owner->HeaderElementalArea();
+            $headerElementalAreaNew = $headerElementalArea->duplicate();
+            $this->owner->HeaderElementalAreaID = $headerElementalAreaNew->ID;
+
             $elementalArea = $this->owner->ElementalArea();
             $elementalAreaNew = $elementalArea->duplicate();
             $this->owner->ElementalAreaID = $elementalAreaNew->ID;
@@ -30,7 +35,11 @@ class SiteTreeFluentExtension extends DataExtension
     public function updateLocaliseSelect(&$query, $table, $field, Locale $locale)
     {
         // disallow elemental data inheritance in the case that published localised page instance already exists
-        if (in_array($field, ['ElementalAreaID', 'FooterElementalAreaID']) && $this->owner->isPublishedInLocale()) {
+        if (in_array($field, [
+            'HeaderElementalAreaID',
+            'ElementalAreaID',
+            'FooterElementalAreaID',
+        ]) && $this->owner->isPublishedInLocale()) {
             $query = '"' . $table . '_Localised_' . $locale->getLocale() . '"."' . $field . '"';
         }
     }

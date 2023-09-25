@@ -15,7 +15,9 @@ class ElementVirtualExtension extends DataExtension
         if ($linkedElementField = $fields->dataFieldByName('LinkedElementID')) {
             $onlyClasses = [];
 
-            if (SiteTree::get()->filter('FooterElementalAreaID', $this->owner->ParentID)->first()) {
+            if (SiteTree::get()->filter('HeaderElementalAreaID', $this->owner->ParentID)->first()) {
+                $onlyClasses = SiteTree::config()->get('allowed_header_types');
+            } elseif (SiteTree::get()->filter('FooterElementalAreaID', $this->owner->ParentID)->first()) {
                 $onlyClasses = SiteTree::config()->get('allowed_footer_types');
             } elseif ($page = $this->owner->getPage()) {
                 $onlyClasses = array_keys($page->getElementalTypes());

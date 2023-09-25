@@ -18,6 +18,8 @@ DNADesign\Elemental\Models\BaseElement:
 DNADesign\ElementalVirtual\Model\ElementVirtual:
   displays_title_caption_field: false
 SilverStripe\CMS\Model\SiteTree:
+  allowed_header_types:
+    - DNADesign\ElementalVirtual\Model\ElementVirtual
   allowed_footer_types:
     - DNADesign\ElementalVirtual\Model\ElementVirtual
 ---
