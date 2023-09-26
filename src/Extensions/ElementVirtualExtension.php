@@ -5,6 +5,7 @@ namespace TJBW\IdSkElemental\Extensions;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataExtension;
+use TractorCow\Fluent\State\FluentState;
 
 class ElementVirtualExtension extends DataExtension
 {
@@ -23,8 +24,18 @@ class ElementVirtualExtension extends DataExtension
                 $onlyClasses = array_keys($page->getElementalTypes());
             }
 
+            $filter = [];
+
+            if (class_exists(FluentState::class)) {
+                $filter['TopPageLocale'] = FluentState::singleton()->getLocale();
+            }
+
             if ($onlyClasses) {
-                $linkedElementField->setSource($linkedElementField->getSourceList()->filter('ClassName', $onlyClasses));
+                $filter['ClassName'] = $onlyClasses;
+            }
+
+            if ($filter) {
+                $linkedElementField->setSource($linkedElementField->getSourceList()->filter($filter));
             }
         }
     }
