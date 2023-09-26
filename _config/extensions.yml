@@ -20,6 +20,7 @@ DNADesign\Elemental\Models\ElementalArea:
     - DNADesign\Elemental\TopPage\DataExtension
 ---
 Name: idsk-fluent-extensions
+Before: '#idsk-elemental-extensions'
 Only:
   moduleexists: tractorcow/silverstripe-fluent
 ---
