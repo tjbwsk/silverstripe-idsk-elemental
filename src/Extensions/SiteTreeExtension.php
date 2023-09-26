@@ -4,9 +4,12 @@ namespace TJBW\IdSkElemental\Extensions;
 
 use DNADesign\Elemental\Forms\TextCheckboxGroupField;
 use DNADesign\Elemental\Models\ElementalArea;
+use SilverStripe\Blog\Model\BlogPost;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
 use SilverStripe\ORM\DataExtension;
+use TJBW\IdSkElemental\Elements\ElementBlogPostFeaturedImage;
+use TJBW\IdSkElemental\Elements\ElementBlogPostSummary;
 
 class SiteTreeExtension extends DataExtension
 {
@@ -39,10 +42,12 @@ class SiteTreeExtension extends DataExtension
 
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->replaceField(
-            'Title',
-            TextCheckboxGroupField::create($this->owner->fieldLabel('Title')),
-        );
+        if (!class_exists(BlogPost::class) || !$this->owner instanceof BlogPost) {
+            $fields->replaceField(
+                'Title',
+                TextCheckboxGroupField::create($this->owner->fieldLabel('Title')),
+            );
+        }
 
         if ($headerArea = $fields->dataFieldByName('HeaderElementalArea')) {
             $list = [];
@@ -92,6 +97,14 @@ class SiteTreeExtension extends DataExtension
 
             $fields->insertAfter('Header', Tab::create('Footer', 'Pätička'));
             $fields->addFieldToTab('Root.Footer', $footerArea);
+        }
+    }
+
+    public function updateAvailableTypesForClass($class, &$list)
+    {
+        if (class_exists(BlogPost::class) && $class !== BlogPost::class) {
+            unset($list[ElementBlogPostFeaturedImage::class]);
+            unset($list[ElementBlogPostSummary::class]);
         }
     }
 }

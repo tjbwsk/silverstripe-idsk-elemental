@@ -48,8 +48,6 @@ Name: idsk-elemental-blog-config
 Only:
   moduleexists: dynamic/silverstripe-elemental-blog
 ---
-SilverStripe\Blog\Model\BlogPost:
-  elemental_keep_content_field: true
 SilverStripe\CMS\Model\SiteTree:
   disallowed_elements:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
@@ -60,6 +58,17 @@ DNADesign\ElementalList\Model\ElementList:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
     - Dynamic\Elements\Blog\Elements\ElementBlogPagination
     - Dynamic\Elements\Blog\Elements\ElementBlogWidgets
+---
+Name: idsk-elemental-blog-model-config
+Only:
+  moduleexists: silverstripe/blog
+---
+SilverStripe\Blog\Model\BlogPost:
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementCrossroad
+    - TJBW\IdSkElemental\Elements\ElementCrossroadPageChildren
+    - TJBW\IdSkElemental\Elements\ElementInPageNavigation
+    - DNADesign\ElementalList\Model\ElementList
 ---
 Name: idsk-elemental-file-config
 Only:

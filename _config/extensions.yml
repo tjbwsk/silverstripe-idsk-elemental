@@ -60,6 +60,14 @@ Dynamic\Elements\Blog\Elements\ElementBlogPosts:
   extensions:
     - TJBW\IdSkElemental\Extensions\ElementBlogPostsExtension
 ---
+Name: idsk-elemental-blog-model-extensions
+Only:
+  moduleexists: silverstripe/blog
+---
+SilverStripe\Blog\Model\BlogPost:
+  extensions:
+    - TJBW\IdSkElemental\Extensions\BlogPostExtension
+---
 Name: idsk-elemental-file-extensions
 Only:
   moduleexists: silverstripe/elemental-fileblock
