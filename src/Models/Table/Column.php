@@ -2,6 +2,7 @@
 
 namespace TJBW\IdSkElemental\Models\Table;
 
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\ORM\DataObject;
 
@@ -30,7 +31,10 @@ class Column extends DataObject
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
             $fields->removeByName('RowID');
 
-            $fields->dataFieldByName('Content')->setRows(5);
+            $contentField = $fields->dataFieldByName('Content')->setRows(5);
+
+            TinyMCEConfig::get('cms')
+                ->setMode($contentField, TinyMCEConfig::MODE_MINIMAL);
         });
 
         return parent::getCMSFields();

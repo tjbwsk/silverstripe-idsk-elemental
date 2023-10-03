@@ -16,7 +16,7 @@ final class IdSkCSSFramework implements CSSFrameworkInterface
 
     private const COLUMN_CLASSNAME = 'govuk-grid-column';
 
-    private const ROW_CLASSNAME = 'govuk-grid-row';
+    private const ROW_CLASSNAME = 'govuk-grid-row govuk-grid-row--auto-spacing';
 
     public function __construct(BaseElement $baseElement)
     {

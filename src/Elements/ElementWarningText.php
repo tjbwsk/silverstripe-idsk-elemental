@@ -3,6 +3,7 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use TJBW\IdSkElemental\Extensions\ElementVariation;
 
@@ -44,7 +45,11 @@ class ElementWarningText extends BaseElement
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->dataFieldByName('Content')->setRows(3);
+            $contentField = $fields->dataFieldByName('Content')->setRows(3);
+
+            TinyMCEConfig::get('cms')
+                ->setMode($contentField, TinyMCEConfig::MODE_MINIMAL)
+                ->removeRootBlock();
         });
 
         return parent::getCMSFields();

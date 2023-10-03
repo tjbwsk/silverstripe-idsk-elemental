@@ -5,7 +5,7 @@
 				<div class="govuk-heading-m<% if not $SideMenuTitle || not $SideMenuItems %> govuk-!-margin-top-0<% else_if $ShowSearchForm && not $BottomMenuTitle || $ShowSearchForm && not $BottomMenuItems %> heading-bigger-margin<% end_if %>">
 					<% include TJBW/IdSkElemental/Includes/ElementTitle TitleSizeClass='govuk-heading-m govuk-!-margin-0' %>
 				</div>
-				<% if $Content %><div class="govuk-body">$Content</div><% end_if %>
+				<% if $Content %><div class="typography">$Content</div><% end_if %>
 				<% if $ShowSearchForm %>
 					$IntroBlockSearchForm
 					<% if $BottomMenuTitle && $BottomMenuItems %>

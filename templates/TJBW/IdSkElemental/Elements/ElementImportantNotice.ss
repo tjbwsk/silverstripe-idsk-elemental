@@ -3,4 +3,3 @@
 <% else %>
 	<% include Rasstislav/IdSk/Includes/Components/Typography/WarningIconText Title=$Content %>
 <% end_if %>
-

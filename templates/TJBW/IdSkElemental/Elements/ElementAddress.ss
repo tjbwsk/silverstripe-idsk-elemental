@@ -6,9 +6,7 @@
 			<div class="idsk-address__description">
 				<% if $PrimaryTitle %><h2 class="govuk-heading-m">$PrimaryTitle</h2><% end_if %>
 				<% if $SecondaryTitle %><h3 class="govuk-heading-s">$SecondaryTitle</h3><% end_if %>
-				<div class="govuk-body">
-					$Content
-				</div>
+				<div class="typography">$Content</div>
 			</div>
 			<iframe
 				class="idsk-address__map<% if $RemoveComponentBottomMargin %> govuk-!-margin-bottom-0<% else %> govuk-!-margin-bottom-6<% end_if %>"

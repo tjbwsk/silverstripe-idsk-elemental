@@ -5,6 +5,7 @@ namespace TJBW\IdSkElemental\Elements;
 use DNADesign\Elemental\Models\BaseElement;
 use Heyday\MenuManager\MenuItem;
 use Rasstislav\IdSk\Forms\IntroBlockSearchForm;
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\FormField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
@@ -92,7 +93,10 @@ class ElementIntroBlock extends BaseElement
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->dataFieldByName('Content')->setRows(5);
+            $contentField = $fields->dataFieldByName('Content')->setRows(5);
+
+            TinyMCEConfig::get('cms')
+                ->setMode($contentField, TinyMCEConfig::MODE_MINIMAL);
 
             $fields->insertAfter('Main', Tab::create('SearchOptions', 'Vyhľadávanie'));
             $fields->insertAfter('SearchOptions', Tab::create('SideMenuOptions', 'Populárny obsah'));

@@ -2,6 +2,7 @@
 
 namespace TJBW\IdSkElemental\Models\Timeline;
 
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use TJBW\IdSkElemental\Forms\NullableTimeField;
 
@@ -27,7 +28,10 @@ class ContentItem extends BaseItem
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->dataFieldByName('Title')->setRows(3);
+            $titleField = $fields->dataFieldByName('Title')->setRows(3);
+
+            TinyMCEConfig::get('cms')
+                ->setMode($titleField, TinyMCEConfig::MODE_MINIMAL);
 
             $fields->replaceField('Time', NullableTimeField::create('Time', $this->fieldLabel('Time')));
         });

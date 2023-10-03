@@ -2,6 +2,7 @@
 
 namespace TJBW\IdSkElemental\Models\Table;
 
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField;
 use SilverStripe\ORM\DataObject;
@@ -74,6 +75,8 @@ class Row extends DataObject
                 $columnsGFDataColumns = $columnsGFConfig
                     ->getComponentByType(GridField\GridFieldDataColumns::class);
 
+                $tinyMCEConfig = TinyMCEConfig::get('cms');
+
                 $columnsGFConfig
                     ->removeComponentsByType(GridField\GridFieldButtonRow::class)
                     ->removeComponentsByType(GridField\GridFieldAddNewButton::class)
@@ -87,10 +90,17 @@ class Row extends DataObject
                         GridFieldEditableColumns::create()
                             ->setDisplayFields([
                                 'Content' => [
-                                    'callback' => fn ($record, $column, $grid) => DataObject::singleton(Column::class)
-                                        ->dbObject($column)->scaffoldFormField()
-                                        ->setRows(3)
-                                        ->setTitle(false),
+                                    'callback' => function ($record, $column, $grid) use ($tinyMCEConfig) {
+                                        $contentField = DataObject::singleton(Column::class)
+                                            ->dbObject($column)->scaffoldFormField()
+                                            ->setRows(3)
+                                            ->setTitle(false);
+
+
+                                        $tinyMCEConfig->setMode($contentField, TinyMCEConfig::MODE_MINIMAL);
+
+                                        return $contentField;
+                                    },
                                 ],
                             ]),
                         GridField\GridFieldDataColumns::class,

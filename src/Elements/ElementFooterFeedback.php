@@ -5,9 +5,9 @@ namespace TJBW\IdSkElemental\Elements;
 use DNADesign\ElementalUserForms\Model\ElementForm;
 use gorriecoe\Link\Models\Link;
 use gorriecoe\LinkField\LinkField;
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\Tab;
-use SilverStripe\Forms\TextField;
 
 if (!class_exists(ElementForm::class)) {
     return;
@@ -95,11 +95,9 @@ class ElementFooterFeedback extends ElementForm
                 $fields->dataFieldByName('SurveyAction'),
             ]);
 
-            $fields->removeByName('OnCompleteMessageLabelOnCompleteMessage');
-
-            $fields->findTab('Root.FormOptions')->unshift(
-                TextField::create('OnCompleteMessage', $this->fieldLabel('OnCompleteMessage'))
-            );
+            TinyMCEConfig::get('cms')
+                ->setMode($fields->dataFieldByName('OnCompleteMessage'), TinyMCEConfig::MODE_MINIMAL)
+                ->removeRootBlock();
         });
 
         return parent::getCMSFields();

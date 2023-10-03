@@ -76,7 +76,7 @@
 									</button>
 								</div>
 							</div>
-							<div class="idsk-footer-extended-form-text">$Top.SurveyContent</div>
+							<div class="idsk-footer-extended-form-text typography">$Top.SurveyContent</div>
 							<br>
 							<div class="idsk-footer-extended-feedback-button">
 								<% with $Top.SurveyAction %>
@@ -101,9 +101,9 @@
 									</button>
 								</div>
 							</div>
-							<div class="idsk-footer-extended-form-text">$Top.FeedbackContent</div>
+							<div class="idsk-footer-extended-form-text typography">$Top.FeedbackContent</div>
 							<% if $FormName %>
-								$Me
+								$Me.addExtraClass('govuk-!-margin-top-4')
 							<% end_if %>
 						</div>
 					</div>

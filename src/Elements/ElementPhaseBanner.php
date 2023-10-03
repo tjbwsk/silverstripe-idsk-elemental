@@ -3,6 +3,7 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Rasstislav\IdSk\TinyMCEConfig;
 use SilverStripe\Forms\FieldList;
 
 /**
@@ -35,7 +36,11 @@ class ElementPhaseBanner extends BaseElement
     public function getCMSFields()
     {
         $this->beforeUpdateCMSFields(function (FieldList $fields) {
-            $fields->dataFieldByName('Content')->setRows(2);
+            $contentField = $fields->dataFieldByName('Content')->setRows(2);
+
+            TinyMCEConfig::get('cms')
+                ->setMode($contentField, TinyMCEConfig::MODE_MINIMAL)
+                ->removeRootBlock();
         });
 
         return parent::getCMSFields();

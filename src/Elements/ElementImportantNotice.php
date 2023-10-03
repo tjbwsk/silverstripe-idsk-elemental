@@ -3,6 +3,8 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use Rasstislav\IdSk\TinyMCEConfig;
+use SilverStripe\Forms\FieldList;
 
 /**
  * @see https://idsk.gov.sk/komponenty/typografia#pravny-text
@@ -33,11 +35,15 @@ class ElementImportantNotice extends BaseElement
 
     public function getCMSFields()
     {
-        $fields = parent::getCMSFields();
+        $this->beforeUpdateCMSFields(function (FieldList $fields) {
+            $contentField = $fields->dataFieldByName('Content')->setRows(2);
 
-        $fields->dataFieldByName('Content')->setRows(2);
+            TinyMCEConfig::get('cms')
+                ->setMode($contentField, TinyMCEConfig::MODE_MINIMAL)
+                ->removeRootBlock();
+        });
 
-        return $fields;
+        return parent::getCMSFields();
     }
 
     public function getType()
