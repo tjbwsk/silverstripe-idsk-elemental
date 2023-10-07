@@ -1,5 +1,5 @@
 <% if $Title && $ShowTitle %>
-	$File.preview(1, $RemoveComponentBottomMargin)
+	$File.preview($Title, $RemoveComponentBottomMargin)
 <% else %>
-	$File.preview(0, $RemoveComponentBottomMargin)
+	$File.preview('', $RemoveComponentBottomMargin)
 <% end_if %>
