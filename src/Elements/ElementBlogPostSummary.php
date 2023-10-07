@@ -23,7 +23,6 @@ class ElementBlogPostSummary extends BaseElement
     private static $displays_title_tag_field = false;
     private static $displays_title_class_field = false;
     private static $displays_title_in_template = false;
-    private static $search_indexable = false;
 
     private static $field_labels = [
         'Title' => 'Interný názov',

@@ -9,6 +9,13 @@ use TractorCow\Fluent\State\FluentState;
 
 class ElementVirtualExtension extends DataExtension
 {
+    public function updateContentForSearchIndex(&$content): void
+    {
+        if (!$this->owner->LinkedElement()->getSearchIndexable()) {
+            $content = '';
+        }
+    }
+
     public function updateCMSFields(FieldList $fields): void
     {
         $fields->removeByName('Title');

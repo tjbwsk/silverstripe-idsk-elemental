@@ -7,6 +7,16 @@ use SilverStripe\ORM\DataExtension;
 
 class BaseElementExtension extends DataExtension
 {
+    public function onAfterWrite()
+    {
+        $this->owner->TopPage()->write();
+    }
+
+    public function onBeforePublish()
+    {
+        $this->owner->TopPage()->publishSingle();
+    }
+
     public function updateCMSFields(FieldList $fields)
     {
         $fields->removeByName('ExtraClass');

@@ -40,6 +40,11 @@ class SiteTreeExtension extends DataExtension
         $this->owner->ShowTitle = true;
     }
 
+    public function onBeforeWrite()
+    {
+        $this->owner->Content = $this->owner->getElementsForSearch();
+    }
+
     public function updateCMSFields(FieldList $fields)
     {
         if (!class_exists(BlogPost::class) || !$this->owner instanceof BlogPost) {
