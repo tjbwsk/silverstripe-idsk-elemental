@@ -11,7 +11,6 @@ class SSViewer_BasicIteratorSupport extends CoreSSViewer_BasicIteratorSupport im
     {
         return [
             'IsMedian',
-            'LoopPos' => ['method' => 'Pos'],
         ];
     }
 
