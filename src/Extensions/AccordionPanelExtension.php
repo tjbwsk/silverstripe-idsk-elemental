@@ -25,7 +25,7 @@ class AccordionPanelExtension extends DataExtension
         $fields->insertAfter('Title', $fields->dataFieldByName('Summary'));
 
         $fields->removeByName('Image');
-        $fields->removeByName('ElementLinkID');
+        $fields->removeByName('ElementLink');
 
         $titleField = $fields->dataFieldByName('Title');
 
