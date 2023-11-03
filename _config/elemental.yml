@@ -3,13 +3,21 @@ Name: idsk-elemental-my-config
 ---
 SilverStripe\CMS\Model\SiteTree:
   disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementSearchResults
     - TJBW\IdSkElemental\Elements\ElementPhaseBanner
     - TJBW\IdSkElemental\Elements\ElementTab
   allowed_header_types:
     - TJBW\IdSkElemental\Elements\ElementPhaseBanner
+Rasstislav\IdSk\Pages\SearchResultsPage:
+  stop_element_inheritance: true
+  disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementPhaseBanner
+    - TJBW\IdSkElemental\Elements\ElementTab
+    - TJBW\IdSkElemental\Elements\ElementFooterFeedback
 DNADesign\ElementalList\Model\ElementList:
   displays_remove_component_bottom_margin_field: false
   disallowed_elements:
+    - TJBW\IdSkElemental\Elements\ElementSearchResults
     - TJBW\IdSkElemental\Elements\ElementPhaseBanner
     - TJBW\IdSkElemental\Elements\ElementTab
 ---
@@ -49,6 +57,11 @@ Only:
   moduleexists: dynamic/silverstripe-elemental-blog
 ---
 SilverStripe\CMS\Model\SiteTree:
+  disallowed_elements:
+    - Dynamic\Elements\Blog\Elements\ElementBlogOverview
+    - Dynamic\Elements\Blog\Elements\ElementBlogPagination
+    - Dynamic\Elements\Blog\Elements\ElementBlogWidgets
+Rasstislav\IdSk\Pages\SearchResultsPage:
   disallowed_elements:
     - Dynamic\Elements\Blog\Elements\ElementBlogOverview
     - Dynamic\Elements\Blog\Elements\ElementBlogPagination

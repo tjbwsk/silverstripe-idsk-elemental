@@ -1,0 +1,15 @@
+sk:
+  TJBW\IdSkElemental\Elements\ElementSearchResults:
+    NO_RESULTS: 'Ľutujeme, váš vyhľadávací dopyt nevrátil žiadne výsledky.'
+    RESULTS_COUNT:
+      one: '{count} výsledok'
+      few: '{count} výsledky'
+      other: '{count} výsledkov'
+    SHOW_RESULTS_COUNT:
+      one: 'Zobraziť {count} výsledok'
+      few: 'Zobraziť {count} výsledky'
+      other: 'Zobraziť {count} výsledkov'
+    SORT_RESULTS_BY:
+      one: 'Zoradiť <strong>{count} výsledok</strong> podľa'
+      few: 'Zoradiť <strong>{count} výsledky</strong> podľa'
+      other: 'Zoradiť <strong>{count} výsledkov</strong> podľa'
