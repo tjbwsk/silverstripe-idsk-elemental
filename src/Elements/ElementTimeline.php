@@ -7,6 +7,8 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldDeleteAction;
+use SilverStripe\Forms\GridField\GridFieldPageCount;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use TJBW\IdSkElemental\Models\Timeline;
@@ -68,6 +70,8 @@ class ElementTimeline extends BaseElement
                     ->removeComponentsByType(GridFieldAddNewButton::class)
                     ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
                     ->removeComponentsByType(GridFieldDeleteAction::class)
+                    ->removeComponentsByType(GridFieldPaginator::class)
+                    ->removeComponentsByType(GridFieldPageCount::class)
                 ;
             }
         });
