@@ -9,12 +9,16 @@ class BaseElementExtension extends DataExtension
 {
     public function onAfterWrite()
     {
-        $this->owner->TopPage()->write();
+        if (($topPage = $this->owner->TopPage())->isInDB()) {
+            $topPage->write();
+        }
     }
 
     public function onBeforePublish()
     {
-        $this->owner->TopPage()->publishSingle();
+        if (($topPage = $this->owner->TopPage())->isInDB()) {
+            $topPage->publishSingle();
+        }
     }
 
     public function updateCMSFields(FieldList $fields)
