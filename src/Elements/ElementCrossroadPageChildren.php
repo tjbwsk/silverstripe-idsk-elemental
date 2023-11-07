@@ -3,6 +3,7 @@
 namespace TJBW\IdSkElemental\Elements;
 
 use DNADesign\Elemental\Models\BaseElement;
+use SilverStripe\ORM\ArrayList;
 use SilverStripe\ORM\DataObject;
 
 /**
@@ -24,10 +25,10 @@ class ElementCrossroadPageChildren extends BaseElement
 
     public function Items()
     {
-        return self::$_cache_items ??= $this->getPage()->AllChildren()
+        return self::$_cache_items ??= $this->getPage()?->AllChildren()
             ->filterByCallback(function (DataObject $record) {
                 return $record->canView();
-            });
+            }) ?: ArrayList::create();
     }
 
     public function getVariant()
