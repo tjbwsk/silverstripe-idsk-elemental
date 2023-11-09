@@ -88,6 +88,7 @@ Only:
   moduleexists: silverstripe/elemental-fileblock
 ---
 SilverStripe\ElementalFileBlock\Block\FileBlock:
+  search_indexable: false
   displays_title_caption_field: false
 ---
 Name: idsk-elemental-grid-config
